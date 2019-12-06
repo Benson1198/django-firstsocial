@@ -30,9 +30,9 @@ class Group(models.Model):
     class Meta:
         ordering = ['name']
 
-class GroupMember(models.model):
-    group = models.ForeignKey(Group,related_name = 'memberships')
-    user = models.ForeignKey(User,related_name = 'user_groups')
+class GroupMember(models.Model):
+    group = models.ForeignKey(Group,related_name = 'memberships',on_delete=models.PROTECT)
+    user = models.ForeignKey(User,related_name = 'user_groups',on_delete=models.PROTECT)
 
     def __str__(self):
         return self.user.username
