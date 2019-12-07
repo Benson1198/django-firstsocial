@@ -8,6 +8,7 @@ from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
 from groups.models import Group,GroupMember
+from . import models
 
 class CreateGroup(LoginRequiredMixin,generic.CreateView):
     fields = ('name','description')
